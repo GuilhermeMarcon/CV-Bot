@@ -16,7 +16,7 @@ const Chatbot = () => {
 
     try {
       // Send message to back-end
-      const response = await axios.post("http://localhost:8000/chat", {
+      const response = await axios.post("https://cv-bot-back.onrender.com/chat", {
         message: userInput,
       });
 
