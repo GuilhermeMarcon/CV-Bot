@@ -12,7 +12,7 @@ function App() {
           Hi, I'm Guilherme Marcon, a passionate AI enthusiast with a focus on sentiment analysis, machine learning, and generative AI. Feel free to ask my bot about my skills, projects, or any AI-related topics! 
         </p>
         <p style={styles.description}>
-          Note that the bot has no filter, I use RAG to give it information about me, but I can't garantee it is telling the truth. Any questions feel free to e-mail me at guilherme.santos.marcon@alumni.usp.br!
+          Note that even using RAG, I can't 100% garantee the bot is telling the truth. Any questions feel free to e-mail me at guilherme.santos.marcon@alumni.usp.br!
         </p>
       </div>
       <ChatBot />
