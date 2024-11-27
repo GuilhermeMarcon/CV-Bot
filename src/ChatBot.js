@@ -5,6 +5,7 @@ import "./ChatBot.css";
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleSend = async () => {
     if (!userInput.trim()) return;
@@ -13,6 +14,7 @@ const Chatbot = () => {
     const newMessages = [...messages, { sender: "user", text: userInput }];
     setMessages(newMessages);
     setUserInput("");
+    setLoading(true); // Start loading
 
     try {
       // Send message to back-end
@@ -20,16 +22,14 @@ const Chatbot = () => {
         message: userInput,
       });
 
-      // Log the response to see what the bot replied
-      console.log("Bot response:", response.data);
-
       // Add bot's response
       setMessages([...newMessages, { sender: "bot", text: response.data.reply }]);
     } catch (error) {
       console.error("Error communicating with the bot:", error);
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
-
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -48,6 +48,13 @@ const Chatbot = () => {
             {msg.text}
           </div>
         ))}
+        {loading && (
+          <div className="loading-indicator">
+            <div className="dot"></div>
+            <div className="dot"></div>
+            <div className="dot"></div>
+          </div>
+        )}
       </div>
       <div className="input-container">
         <input

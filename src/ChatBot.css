@@ -53,7 +53,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Bot Message Bubble */
 .bot-message {
   background-color: #e1f5fe;
   color: #0277bd;
@@ -61,12 +60,44 @@ body {
   border-radius: 10px 10px 10px 0;
 }
 
-/* User Message Bubble */
 .user-message {
   background-color: #d1c4e9;
   color: #4a148c;
   align-self: flex-end;
   border-radius: 10px 10px 0 10px;
+}
+
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  background-color: #007bff;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 
 /* Input and Button Container */
